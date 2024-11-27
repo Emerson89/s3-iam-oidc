@@ -36,7 +36,7 @@ module "s3" {
   lifecycle_s3 = [
     {
       rule_id         = "tempo"
-      bucket_name_key = "tempo"
+      bucket_name_key = "tempo" ## Nome do bucket
 
       expiration = [
         {
@@ -52,7 +52,7 @@ module "s3" {
     },
     {
       rule_id         = "loki"
-      bucket_name_key = "loki"
+      bucket_name_key = "loki" ## Nome do bucket
 
       expiration = [
         {
@@ -74,14 +74,14 @@ module "s3" {
       string          = "StringEquals"
       namespace       = "monitoring" ## Namespace k8s
       serviceaccount  = "tempo" ## Nome service account 
-      bucket_name_key = "tempo"
+      bucket_name_key = "tempo" ## Nome do bucket
     },
     {
       role_name       = "loki"
       string          = "StringEquals"
       namespace       = "monitoring" ## Namespace k8s
       serviceaccount  = "loki" ## Nome service account 
-      bucket_name_key = "loki"
+      bucket_name_key = "loki" ## Nome do bucket
     }
   ]
 
@@ -113,7 +113,7 @@ module "s3" {
   lifecycle_s3 = [
     {
       rule_id         = "example"
-      bucket_name_key = "example" ## é o nome do bucket
+      bucket_name_key = "example" ## Nome do bucket
       
       filter = [
         {
@@ -141,7 +141,7 @@ module "s3" {
       string          = "StringEquals"
       namespace       = "monitoring" ## Namespace k8s
       serviceaccount  = "example" ## Nome service account 
-      bucket_name_key = "example" ## é o nome do bucket
+      bucket_name_key = "example" ## Nome do bucket
     }
   ]
 
@@ -173,7 +173,7 @@ module "s3" {
   lifecycle_s3 = [
     {
       rule_id         = "example"
-      bucket_name_key = "example" ## é o nome do bucket
+      bucket_name_key = "example" ## Nome do bucket
       
       filter = [
         {
@@ -206,7 +206,7 @@ module "s3" {
       string          = "StringEquals"
       namespace       = "monitoring" ## Namespace k8s
       serviceaccount  = "example" ## Nome service account 
-      bucket_name_key = "example" ## é o nome do bucket
+      bucket_name_key = "example" ## Nome do bucket
     }
   ]
 
