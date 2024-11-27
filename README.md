@@ -1,3 +1,5 @@
+**Este módulo tem como objetivo criar um bucket S3 e uma role IAM para acesso a esse bucket, configurada para ser utilizada com OIDC no EKS por meio de uma ServiceAccount.**
+
 ## Requirements
 
 | Name | Version |
@@ -70,15 +72,15 @@ module "s3" {
     {
       role_name       = "tempo"
       string          = "StringEquals"
-      namespace       = "monitoring"
-      serviceaccount  = "tempo"
+      namespace       = "monitoring" ## Namespace k8s
+      serviceaccount  = "tempo" ## Nome service account 
       bucket_name_key = "tempo"
     },
     {
       role_name       = "loki"
       string          = "StringEquals"
-      namespace       = "monitoring"
-      serviceaccount  = "loki"
+      namespace       = "monitoring" ## Namespace k8s
+      serviceaccount  = "loki" ## Nome service account 
       bucket_name_key = "loki"
     }
   ]
@@ -137,8 +139,8 @@ module "s3" {
     {
       role_name       = "example"
       string          = "StringEquals"
-      namespace       = "monitoring"
-      serviceaccount  = "example"
+      namespace       = "monitoring" ## Namespace k8s
+      serviceaccount  = "example" ## Nome service account 
       bucket_name_key = "example" ## é o nome do bucket
     }
   ]
@@ -202,8 +204,8 @@ module "s3" {
     {
       role_name       = "example"
       string          = "StringEquals"
-      namespace       = "monitoring"
-      serviceaccount  = "example"
+      namespace       = "monitoring" ## Namespace k8s
+      serviceaccount  = "example" ## Nome service account 
       bucket_name_key = "example" ## é o nome do bucket
     }
   ]
