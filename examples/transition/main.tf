@@ -31,6 +31,11 @@ module "s3" {
           storage_class = "GLACIER"
         }
       ]
+      abort_incomplete_multipart_upload = [
+        {
+          days_after_initiation = 1
+        }
+      ]
       status_lifecycle = "Enabled"
     }
   ]

@@ -21,6 +21,11 @@ module "s3" {
           days = 1
         }
       ]
+      abort_incomplete_multipart_upload = [
+        {
+          days_after_initiation = 1
+        }
+      ]
       status_lifecycle = "Enabled"
     }
   ]
